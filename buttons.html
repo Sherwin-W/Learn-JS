@@ -1,0 +1,88 @@
+<style>
+  .subscribe-button{
+  /*starting with a period targets a class*/
+  /*button is the css selector, selecting the css elements we want to target*/
+    background-color: rgb(210, 0, 0);
+    /*background-color the property that we are changing; red is property's value*/
+    
+    color: white;
+    border: none;
+    height: 36px;
+    width: 105px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: opacity, 0.15s;
+    /*two values, the what, then the duration*/
+  }
+
+  .subscribe-button:hover{
+    opacity: 0.8;
+  }
+
+  .subscribe-button:active{
+  /*when clicked*/
+    opacity: 0.5;
+  }
+
+  .join-button{
+    background-color: white;
+    border-color: rgb(46, 104, 212);
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(46, 104, 212);
+    border-radius: 2px;
+    height: 36px;
+    width: 62px;
+    cursor: pointer;
+    transition: background-color 0.15s,
+      color 0.15s;
+    /*if we put transition property to hover, then it only applies when hovering*/
+  }
+
+  .join-button:hover{
+    background-color: rgb(46, 104, 212);
+    color: white;
+  }
+
+  .join-button:active{
+    opacity: 0.7;
+  }
+
+  .tweet-button{
+    background-color: rgb(41, 134, 255);
+    color: white;
+    border: none;
+    height: 36px;
+    width: 74px;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: box-shadow 0.15s;
+  }
+
+  .tweet-button:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    /*horizontal position, vertical position, blur, color*/
+    /*the a in rgba is the opacity*/
+  }
+
+  .tweet-button:active{
+    opacity: 0.7;
+  }
+</style>
+<!--inside the style element, we can write css code-->
+
+<button class="subscribe-button">
+  SUBSCRIBE
+</button>
+
+<button class="join-button">
+  JOIN
+</button>
+
+<button class="tweet-button">
+  Tweet
+</button>
