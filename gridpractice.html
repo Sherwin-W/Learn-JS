@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Grid Practice</title>
+  </head>
+  <body style="padding-bottom: 1000px;">
+    <div style="
+      display: grid;
+      grid-template-columns: 100px 100px;
+      /*width of each column*/
+    ">
+      <div style="background-color: lightblue;">div 1</div>
+      <!--another way of writing css, not usually used-->
+      <div style="background-color: lightpink;">div 2<p>text</p></div>
+    </div>
+
+    <div style="
+      display: grid;
+      grid-template-columns: 100px 100px 200px;
+      margin-top: 30px;
+      /*width of each column*/
+    ">
+      <div style="background-color: lightblue;">100px</div>
+      <div style="background-color: lightpink;">100px<p>text</p></div>
+      <div style="background-color: lightblue;">200px</div>
+      <div style="background-color: lightpink;">100px</div>
+      <!--new row created if we add more tags than columns available-->
+    </div>
+
+    <div style="
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      /*1fr, or one remaining free space*/
+      margin-top: 30px;
+    ">
+      <div style="background-color: lightblue;">100px</div>
+      <div style="background-color: lightpink;">1fr</div>
+    </div>
+
+    <div style="
+      display: grid;
+      grid-template-columns: 100px 1fr 2fr;
+      /*they share the freespace depending on the fr ratio*/
+      margin-top: 30px;
+    ">
+      <div style="background-color: lightblue;">100px</div>
+      <div style="background-color: lightpink;">1fr</div>
+      <div style="background-color: lightblue;">2fr</div>
+    </div>
+
+    <div style="
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 30px;
+    column-gap: 20px;
+    row-gap: 20px;
+  ">
+    <div style="background-color: lightblue;
+      height: 200px;">1fr</div>
+    <div style="background-color: lightpink;
+      height: 200px;">1fr</div>
+    <div style="background-color: lightblue;
+      height: 200px;">1fr</div>
+    <div style="background-color: lightpink;
+      height: 200px;">1fr</div>
+    <div style="background-color: lightblue;
+      height: 200px;">1fr</div>
+    <div style="background-color: lightpink;
+      height: 200px;">1fr</div>
+  </div>
+  </body>
+</html>
