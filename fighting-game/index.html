@@ -1,4 +1,75 @@
-<canvas></canvas>
-<!--1024x576 fits on most computers-->
+<head>
+  <style>
+    *{
+    /*apply to all elements*/
+      box-sizing: border-box;
+      /*padding will not take into affect when affecting overall width*/
+    }
+  </style>
+</head>
 
-<script src="index.js"></script>
+<body>
+  <div style="
+    position: relative;
+    display: inline-block;">
+  <!--canvas div-->
+    <div style="
+      position: absolute;
+      /*means taken out of document flow, wont affect the canvas box*/
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 20px;">
+    <!--top div-->
+    <div style="
+    position: relative;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /*only works with flexbox*/">
+      <div style="
+        background-color: yellow;
+        height: 30px;
+        width: 100%;"></div>
+      <div id="playerHealth" style="
+        position: absolute;
+        background-color: blue;
+        top: 0;
+        right: 0;
+        width: 100%;
+        bottom: 0;
+        /*0px from parent div in all directions, so take up space of parent*/"></div>
+    </div>
+      <!--player health-->
+      <div style="
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+        /*makes it so no longer shrinks*/"></div>
+      <!--timer-->
+      <div style="
+      position: relative;
+      height: 30px;
+      width: 100%;">
+        <div style="
+          background-color: yellow;
+          height: 30px;"></div>
+        <div id="enemyHealth" style="
+          position: absolute;
+          background-color: blue;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          /*0px from parent div in all directions, so take up space of parent*/"></div>
+      </div>
+      <!--enemy health-->
+    </div>
+    <canvas></canvas>
+  </div>
+  <!--1024x576 fits on most computers-->
+
+  <script src="index.js"></script>
+</body>

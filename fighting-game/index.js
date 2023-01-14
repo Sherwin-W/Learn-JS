@@ -36,6 +36,7 @@ class Sprite{
 
     this.color = color
     this.isAttacking
+    this.health = 100;
   }
 
   draw(){
@@ -136,6 +137,15 @@ const keys = {
 
 let lastKey
 
+function rectangularCollision({rectangle1, rectangle2}){
+  return(
+    rectangle1.attackbox.position.x + rectangle1.attackbox.width >= rectangle2.position.x 
+    && rectangle1.attackbox.position.x <= rectangle2.position.x + rectangle2.width
+    && rectangle1.attackbox.position.y + rectangle1.attackbox.height >= rectangle2.position.y
+    && rectangle1.attackbox.position.y <= rectangle2.position.y + rectangle2.height
+  )
+}
+
 function animate(){
   window.requestAnimationFrame(animate)
   //which frame to loop over and over
@@ -149,7 +159,7 @@ function animate(){
   enemy.velocity.x = 0
 
   if(keys.a.pressed && player.lastKey === 'a'){
-    player.velocity.x = -2;
+    player.velocity.x = -2
   }
   else if(keys.d.pressed && player.lastKey === 'd'){
     player.velocity.x = 2
@@ -157,22 +167,37 @@ function animate(){
   //player movement
 
   if(keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft'){
-    enemy.velocity.x = -1;
+    enemy.velocity.x = -2
   }
   else if(keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight'){
-    enemy.velocity.x = 1
+    enemy.velocity.x = 2
   }
   //enemy movement
 
-  if(player.attackbox.position.x + player.attackbox.width >= enemy.position.x 
-    && player.attackbox.position.x <= enemy.position.x + enemy.width
-    && player.attackbox.position.y + player.attackbox.height >= enemy.position.y
-    && player.attackbox.position.y <= enemy.position.y + enemy.height
-    && player.isAttacking
-    ){
+  if(
+    rectangularCollision({
+      rectangle1: player,
+      rectangle2: enemy
+    }) &&
+    player.isAttacking
+  ){
     player.isAttacking = false
     //only one hit when collide
-    console.log('hit!')
+    enemy.health -= 20
+    document.querySelector('#enemyHealth').style.width = enemy.health + '%'
+    //selects the id we created in index.html
+  }
+
+  if(
+    rectangularCollision({
+      rectangle1: enemy,
+      rectangle2: player
+    }) &&
+    enemy.isAttacking
+  ){
+    enemy.isAttacking = false
+    player.health -= 20
+    document.querySelector('#playerHealth').style.width = player.health + '%'
   }
 }
 
