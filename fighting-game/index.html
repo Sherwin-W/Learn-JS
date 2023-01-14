@@ -42,12 +42,19 @@
         /*0px from parent div in all directions, so take up space of parent*/"></div>
     </div>
       <!--player health-->
-      <div style="
+      <div id="timer" style="
         background-color: red;
         width: 100px;
         height: 100px;
         flex-shrink: 0;
-        /*makes it so no longer shrinks*/"></div>
+        display: flex;
+        align-items: center;
+        /*vertical*/
+        justify-content: center;
+        /*horizontal*/
+        /*makes it so no longer shrinks*/">
+          10
+        </div>
       <!--timer-->
       <div style="
       position: relative;
@@ -66,6 +73,18 @@
           /*0px from parent div in all directions, so take up space of parent*/"></div>
       </div>
       <!--enemy health-->
+    </div>
+    <div id="display-text" style="
+    position: absolute;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;">
+      TIE
     </div>
     <canvas></canvas>
   </div>
